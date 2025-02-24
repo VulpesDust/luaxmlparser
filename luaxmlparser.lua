@@ -28,9 +28,7 @@ local function parse_xml_tag(xml, f)
         local tag_name = string.gsub(f.tag, '^(.-)%s.*', '%1')
 
         local attributes = {}
-        local parse_func = function(k, v)
-            attributes[k] = parse_text(v)
-        end
+        local parse_func = function(k, v) attributes[k] = parse_text(v) end
         f.tag:gsub('([%w-:_]+)%s*=%s*"(.-)"', parse_func)
         f.tag:gsub('([%w-:_]+)%s*=%s*\'(.-)\'', parse_func)
         
