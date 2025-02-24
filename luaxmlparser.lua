@@ -22,6 +22,17 @@ local function parse_text(s)
 end
 
 local function parse_xml_tag(xml, f)
+    if f.close ~= '/' then
+        local tag_name = string.gsub(f.tag, '^(.-)%s.*', '%1')
+
+        local attributes = {}
+        local parse_func = function(k, v)
+            attributes[k] = parse_text(v)
+        end
+        f.tag:gsub('([%w-:_]+)%s*=%s*"(.-)"', parse_func)
+        f.tag:gsub('([%w-:_]+)%s*=%s*\'(.-)\'', parse_func)
+        
+    end
 end
 
 local function parse_tag(xml, f)
