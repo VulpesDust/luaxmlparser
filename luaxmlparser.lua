@@ -23,6 +23,13 @@ local function parse_text(s)
     return s
 end
 
+local function stack_remove(f)
+    if #f.stack == 1 then
+        table.insert(f.root, f.stack[#f.stack])
+    end
+    table.remove(f.stack)
+end
+
 local function parse_xml_tag(xml, f)
     if f.close ~= '/' then
         local tag_name = string.gsub(f.tag, '^(.-)%s.*', '%1')
@@ -33,12 +40,16 @@ local function parse_xml_tag(xml, f)
         f.tag:gsub('([%w-:_]+)%s*=%s*\'(.-)\'', parse_func)
         
         local node = Node:new(tag_name, attributes)
+
+        if #f.stack ~= 0 then
+            table.insert(f.stack[#f.stack].children, node)
+        end
         table.insert(f.stack, node)
         if (f.selfclose == "/") then
-            table.remove(f.stack)
+            stack_remove(f)
         end
     else
-        table.remove(f.stack)
+        stack_remove(f)
     end
 end
 
