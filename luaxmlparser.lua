@@ -1,5 +1,7 @@
 local luaxmlparser = {}
 
+local Node = require('src/node')
+
 local ENTITY = {
     ["&quot;"] = '"',
     ["&apos;"] = "'",
