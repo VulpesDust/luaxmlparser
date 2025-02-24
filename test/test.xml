@@ -5,7 +5,7 @@
     Example comment. -->
     
     <param_one>Type One Param One</param_one>
-    <param_two>Type One Param Two</param_two>
+    <param_two>Type One &quot; &apos; &lt; &gt; &amp; Param Two</param_two>
   </div>
   <div type="type_two">
     <param_one>Type Two Param One</param_one>
