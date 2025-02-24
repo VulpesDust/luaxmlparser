@@ -1,10 +1,10 @@
 local Node = {}
 
-function Node:new()
+function Node:new(tag, attributes)
     local node = {
-        tag = nil,
-        children = {},
-        attributes = {}
+        tag = tag,
+        attributes = attributes or {},
+        children = {}
     }
 
     setmetatable(node, self)
