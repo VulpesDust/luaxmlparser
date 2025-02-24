@@ -1,15 +1,15 @@
 local Node = {}
 
 function Node:new(tag, attributes)
-    local node = {
+    local o = {
         tag = tag,
         attributes = attributes or {},
         children = {}
     }
 
-    setmetatable(node, self)
+    setmetatable(o, self)
     self.__index = self
-    return node
+    return o
 end
 
 return Node
