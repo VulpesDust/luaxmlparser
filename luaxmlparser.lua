@@ -23,8 +23,28 @@ local function parse_text(s)
     return s
 end
 
+local function get_tag(xml, f)
+    f.start_match, f.end_match, f.text, f.close, f.tag, f.selfclose = xml:find(TAG, f.position)
+    return f.end_match ~= nil
+end
+
 function luaxmlparser.parse(xml)
 
+    local f = {
+        stack = {},
+        position = 0,
+        start_match = 0,
+        end_match = 0,
+    }
+
+    while f.start_match do
+        if not get_tag(xml, f) then
+            break
+        end
+
+        f.text = parse_text(f.text)
+        f.position = f.end_match + 1
+    end
 
 end
 
