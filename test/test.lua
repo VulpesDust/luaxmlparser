@@ -7,3 +7,5 @@ local function readAll(file)
     return content
 end
 
+local xml = readAll('test/test.xml')
+luaxmlparser.parse(xml)
