@@ -10,9 +10,12 @@
   <div type="type_two">
     <param_one>Type Two Param One</param_one>
     <param_two>Type Two Param Two</param_two>
+    <selfclose type="type_selfclose"/>
+    <selfclose type="type_selfclose" />
+    <selfclose type="type_selfclose"  />
     <selfclose/>
   </div>
-  <div type="type_three">
+  <div type='type_three'>
     <param_one>Type Thr Param One</param_one>
     <param_two>Type Thr Param Two</param_two>
     <empty_tag></empty_tag>
