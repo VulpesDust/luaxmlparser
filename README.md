@@ -5,7 +5,7 @@ lua xml parser
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
 
-## Автор
+## Author
 
 - **Nickname**: VulpesDust
 - **Name**: George Noise
