@@ -13,6 +13,14 @@ local function trim(s)
     return from > #s and "" or s:match(".*%S", from)
 end
 
+local function parse_text(s)
+    s = trim(s)
+    for k, v in pairs(ENTITY) do
+        s = s:gsub(k, v)
+    end
+    return s
+end
+
 local function parse_xml_tag(xml, f)
 end
 
@@ -24,14 +32,6 @@ local function parse_tag(xml, f)
     end
 
 
-end
-
-local function parse_text(s)
-    s = trim(s)
-    for k, v in pairs(ENTITY) do
-        s = s:gsub(k, v)
-    end
-    return s
 end
 
 local function get_tag(xml, f)
