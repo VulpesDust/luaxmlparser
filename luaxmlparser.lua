@@ -1,6 +1,5 @@
 local luaxmlparser = {}
 
-local TAG = '^([^<]*)<(%/?)([^>]-)(%/?)>'
 local ENTITY = {
     ["&quot;"] = '"',
     ["&apos;"] = "'",
@@ -14,6 +13,16 @@ local function trim(s)
     return from > #s and "" or s:match(".*%S", from)
 end
 
+local function parse_xml_tag(xml, f)
+end
+local function parse_tag(xml, f)
+
+    local c = f.tagstr:sub(1, 1)
+    if c ~= '?' and c ~= '!' then
+        parse_xml_tag(xml, f)
+    end
+
+end
 
 local function parse_text(s)
     s = trim(s)
@@ -24,7 +33,8 @@ local function parse_text(s)
 end
 
 local function get_tag(xml, f)
-    f.start_match, f.end_match, f.text, f.close, f.tag, f.selfclose = xml:find(TAG, f.position)
+    f.start_match, f.end_match, f.text, f.close, f.tag, f.selfclose =
+        xml:find('^([^<]*)<(%/?)([^>]-)(%/?)>', f.position)
     return f.end_match ~= nil
 end
 
@@ -43,6 +53,8 @@ function luaxmlparser.parse(xml)
         end
 
         f.text = parse_text(f.text)
+        parse_tag(xml, f)
+
         f.position = f.end_match + 1
     end
 
