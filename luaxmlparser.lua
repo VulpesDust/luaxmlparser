@@ -14,4 +14,13 @@ local function trim(s)
     return from > #s and "" or s:match(".*%S", from)
 end
 
+
+local function parse_text(s)
+    s = trim(s)
+    for k, v in pairs(ENTITY) do
+        s = s:gsub(k, v)
+    end
+    return s
+end
+
 return luaxmlparser
