@@ -32,6 +32,13 @@ local function parse_xml_tag(xml, f)
         f.tag:gsub('([%w-:_]+)%s*=%s*"(.-)"', parse_func)
         f.tag:gsub('([%w-:_]+)%s*=%s*\'(.-)\'', parse_func)
         
+        local node = Node:new(tag_name, attributes)
+        table.insert(f.stack, node)
+        if (f.selfclose == "/") then
+            table.remove(f.stack)
+        end
+    else
+        table.remove(f.stack)
     end
 end
 
