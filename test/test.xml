@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+  <div type="type_one">
+    <!-- Example comment
+    Example comment. -->
+    
+    <param_one>Type One Param One</param_one>
+    <param_two>Type One Param Two</param_two>
+  </div>
+  <div type="type_two">
+    <param_one>Type Two Param One</param_one>
+    <param_two>Type Two Param Two</param_two>
+    <selfclose/>
+  </div>
+  <div type="type_three">
+    <param_one>Type Thr Param One</param_one>
+    <param_two>Type Thr Param Two</param_two>
+    <empty_tag></empty_tag>
+  </div>
+</test>
