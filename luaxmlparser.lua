@@ -26,7 +26,7 @@ end
 
 local function parse_tag(xml, f)
 
-    local c = f.tagstr:sub(1, 1)
+    local c = f.tag:sub(1, 1)
     if c ~= '?' and c ~= '!' then
         parse_xml_tag(xml, f)
     end
