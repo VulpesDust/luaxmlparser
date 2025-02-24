@@ -23,4 +23,9 @@ local function parse_text(s)
     return s
 end
 
+function luaxmlparser.parse(xml)
+
+
+end
+
 return luaxmlparser
