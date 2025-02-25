@@ -4,6 +4,7 @@ function Node:new(tag, attributes)
     local o = {
         tag = tag,
         attributes = attributes or {},
+        text = nil,
         children = {}
     }
 
