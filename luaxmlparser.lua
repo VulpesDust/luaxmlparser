@@ -97,6 +97,7 @@ function luaxmlparser.parse(xml)
         f.position = f.end_match + 1
     end
 
+    return f.root
 end
 
 return luaxmlparser
