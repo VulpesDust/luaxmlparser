@@ -25,7 +25,7 @@ end
 
 local function stack_remove(f)
     if #f.stack == 1 then
-        table.insert(f.root, f.stack[#f.stack])
+        table.insert(f.root.children, f.stack[#f.stack])
     end
     table.remove(f.stack)
 end
