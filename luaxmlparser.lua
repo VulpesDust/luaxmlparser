@@ -87,6 +87,11 @@ function luaxmlparser.parse(xml)
         end
 
         f.text = parse_text(f.text)
+
+        if f.text ~= '' then
+            f.stack[#f.stack].text = f.text
+        end
+
         parse_tag(xml, f)
 
         f.position = f.end_match + 1
