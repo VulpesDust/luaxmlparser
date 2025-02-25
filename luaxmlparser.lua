@@ -73,7 +73,9 @@ function luaxmlparser.parse(xml)
 
     local f = {
         stack = {},
-        root = {},
+        root = {
+            children = {}
+        },
         position = 0,
         start_match = 0,
         end_match = 0,
